@@ -64,7 +64,7 @@ body {
   height: auto;
   align-self: center;
   margin: -1.5rem 0;
-  transform: scale(3);
+  transform: translateY(10rem) scale(2.1);
   transform-origin: center;
 }
 
@@ -244,7 +244,7 @@ footer a,
   .gator-mark {
     width: 6.75rem;
     margin: -1.1rem 0;
-    transform: scale(1.75);
+    transform: scale(1.225);
   }
 
   .name {
