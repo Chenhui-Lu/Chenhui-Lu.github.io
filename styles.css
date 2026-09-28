@@ -144,6 +144,69 @@ footer p {
   letter-spacing: 0.05em;
 }
 
+footer a,
+.policy a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.policy-shell {
+  width: min(100% - 2rem, 52rem);
+  margin: 0 auto;
+  padding: clamp(2rem, 7vw, 6rem) 0;
+}
+
+.policy {
+  padding: clamp(2rem, 6vw, 4.5rem);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 1.5rem 4rem rgba(16, 36, 62, 0.07);
+}
+
+.policy .back-link {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.policy h1 {
+  max-width: none;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.policy-updated {
+  margin: 1rem 0 3rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.policy section + section {
+  margin-top: 2rem;
+}
+
+.policy h2 {
+  margin: 0 0 0.65rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.policy section p,
+.policy li {
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.policy section p {
+  margin: 0;
+}
+
+.policy ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
 @media (max-width: 700px) {
   body {
     background: var(--paper);
@@ -193,6 +256,17 @@ footer p {
   footer {
     grid-column: 1;
     padding: 1.1rem 1.5rem;
+  }
+
+  .policy-shell {
+    width: 100%;
+    padding: 0;
+  }
+
+  .policy {
+    min-height: 100vh;
+    border: 0;
+    box-shadow: none;
   }
 }
 

@@ -11,6 +11,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "index.html"
+PRIVACY = ROOT / "privacy.html"
 
 
 class PageParser(HTMLParser):
@@ -48,7 +49,7 @@ def fail(message: str) -> None:
 
 
 def main() -> int:
-    required = [INDEX, ROOT / "styles.css", ROOT / ".nojekyll"]
+    required = [INDEX, PRIVACY, ROOT / "styles.css", ROOT / ".nojekyll"]
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
     if missing:
         fail(f"Missing public files: {', '.join(missing)}")
@@ -63,6 +64,12 @@ def main() -> int:
         fail("Primary dashboard link label is missing")
     if not any(link.startswith("https://") and "pages.dev" in link for link in parser.links):
         fail("The protected Cloudflare Pages link is missing")
+    if "privacy.html" not in parser.links:
+        fail("The public privacy notice link is missing")
+
+    privacy_html = PRIVACY.read_text(encoding="utf-8")
+    if "Privacy Notice" not in privacy_html or "Google Sign-In" not in privacy_html:
+        fail("The OAuth privacy notice is incomplete")
 
     forbidden_public_terms = [
         "recent progress",
@@ -81,7 +88,7 @@ def main() -> int:
         r"github_pat_[A-Za-z0-9_]{20,}",
         r"(?:api[_-]?key|client[_-]?secret|password)\s*[:=]\s*['\"][^'\"]+",
     ]
-    for path in [INDEX, ROOT / "styles.css"]:
+    for path in [INDEX, PRIVACY, ROOT / "styles.css"]:
         if not path.is_file():
             continue
         text = path.read_text(encoding="utf-8")
