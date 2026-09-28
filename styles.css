@@ -57,14 +57,11 @@ body {
   color: #fff;
 }
 
-.monogram {
-  display: grid;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1rem;
-  place-items: center;
+.gator-mark {
+  display: block;
+  width: 7rem;
+  height: auto;
+  margin: -1.15rem;
 }
 
 .name {
@@ -230,6 +227,11 @@ footer a,
     align-items: center;
     padding: 1.25rem;
     border-right: 0;
+  }
+
+  .gator-mark {
+    width: 5.5rem;
+    margin: -0.9rem;
   }
 
   .name {
