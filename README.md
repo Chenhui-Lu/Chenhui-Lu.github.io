@@ -1,4 +1,4 @@
-# Research Progress Portal
+# Chenhui-Lu.github.io
 
 The public entrance page for Chenhui Lu's committee-facing research progress dashboard. This repository intentionally contains no research details.
 
