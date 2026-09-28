@@ -116,15 +116,15 @@ h1 {
   gap: 2rem;
   padding: 0.85rem 1.1rem 0.85rem 1.3rem;
   border: 1px solid var(--ink);
-  color: var(--ink);
+  color: #fff;
+  background: var(--ink);
   font-size: 0.95rem;
   font-weight: 650;
   text-decoration: none;
 }
 
 .primary-link:hover {
-  background: var(--ink);
-  color: #fff;
+  background: #1b385d;
 }
 
 .primary-link:focus-visible {
