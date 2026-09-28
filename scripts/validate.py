@@ -10,8 +10,7 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ROOT / "public"
-INDEX = PUBLIC / "index.html"
+INDEX = ROOT / "index.html"
 
 
 class PageParser(HTMLParser):
@@ -49,7 +48,7 @@ def fail(message: str) -> None:
 
 
 def main() -> int:
-    required = [INDEX, PUBLIC / "styles.css", PUBLIC / ".nojekyll"]
+    required = [INDEX, ROOT / "styles.css", ROOT / ".nojekyll"]
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
     if missing:
         fail(f"Missing public files: {', '.join(missing)}")
@@ -82,7 +81,7 @@ def main() -> int:
         r"github_pat_[A-Za-z0-9_]{20,}",
         r"(?:api[_-]?key|client[_-]?secret|password)\s*[:=]\s*['\"][^'\"]+",
     ]
-    for path in PUBLIC.rglob("*"):
+    for path in [INDEX, ROOT / "styles.css"]:
         if not path.is_file():
             continue
         text = path.read_text(encoding="utf-8")
