@@ -7,6 +7,7 @@
   --line: #d9e0e7;
   --accent: #9a6b2f;
   --accent-dark: #765022;
+  --attention: #b84b2c;
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
 }
@@ -140,7 +141,16 @@ h1 {
   line-height: 1.6;
 }
 
+.account-help {
+  color: var(--attention);
+  font-weight: 700;
+}
+
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
   grid-column: 2;
   padding: 1.15rem clamp(2.5rem, 7vw, 6.5rem);
   border-top: 1px solid var(--line);
@@ -151,6 +161,12 @@ footer p {
   color: var(--ink-soft);
   font-size: 0.8rem;
   letter-spacing: 0.05em;
+}
+
+.privacy-assurance {
+  max-width: 34rem;
+  text-align: right;
+  letter-spacing: 0;
 }
 
 footer a,
@@ -269,8 +285,15 @@ footer a,
   }
 
   footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.55rem;
     grid-column: 1;
     padding: 1.1rem 1.5rem;
+  }
+
+  .privacy-assurance {
+    text-align: left;
   }
 
   .policy-shell {
