@@ -151,7 +151,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  grid-column: 2;
+  grid-column: 1 / -1;
   padding: 1.15rem clamp(2.5rem, 7vw, 6.5rem);
   border-top: 1px solid var(--line);
 }
@@ -161,10 +161,11 @@ footer p {
   color: var(--ink-soft);
   font-size: 0.8rem;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .privacy-assurance {
-  max-width: 34rem;
+  margin-left: auto;
   text-align: right;
   letter-spacing: 0;
 }
@@ -292,7 +293,12 @@ footer a,
     padding: 1.1rem 1.5rem;
   }
 
+  footer p {
+    white-space: normal;
+  }
+
   .privacy-assurance {
+    margin-left: 0;
     text-align: left;
   }
 
